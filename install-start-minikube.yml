@@ -2,9 +2,6 @@
   hosts: localhost
   user: ubuntu
   become: yes
-  
-  vars:
-  myPath: “/home/ubuntu/”
 
   tasks:
   
