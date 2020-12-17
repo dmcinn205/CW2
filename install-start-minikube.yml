@@ -15,7 +15,7 @@
 
   - name: 3
     shell:
-      cmd: mv minikube /usr/local/bin/
+      cmd: sudo mv minikube /usr/local/bin/
       
   - name: 4
     shell:
