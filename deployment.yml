@@ -1,0 +1,11 @@
+- name: Deploy Service Scale Kubernetes
+  hosts: localhost
+  user: ubuntu
+  become: yes
+
+  tasks:
+  
+  - name: 1
+    shell:
+      cmd: 
+      
