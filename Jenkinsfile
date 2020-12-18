@@ -24,7 +24,7 @@ pipeline {
 
 		 stage('Deploy to Kubernetes') {
                  steps {
-                    sh """ ssh ubuntu@100.25.46.184 "cd CW2; kubectl set iumage deployment/kubernetes-cw2 kubernetes-cw2=dmcinn205/cw2:latest" """
+                    sh """ ssh ubuntu@100.25.46.184 "cd CW2; kubectl set image deployment/kubernetes-cw2 kubernetes-cw2=dmcinn205/cw2:latest" """
                  }
                  }
 		 
