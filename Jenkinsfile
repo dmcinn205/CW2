@@ -1,16 +1,25 @@
 pipeline {
          agent any
          stages {
+		         stage('Run SonarQube Test') {
+		             environment {
+        		     scannerHome = tool 'SonarQubeScanner'
+				 }
+				 steps {
+					 withSonarQubeEnv('sonarqube') {
+					 sh "${scannerHome}/bin/sonar-scanner"
+				 }
+					 timeout(time: 10, unit: 'MINUTES') {
+                     waitForQualityGate abortPipeline: true
+				 }
+				 }
+                 }
                  stage('Check GitHub') {
                  steps {
                      echo 'Check GitHub Stage'
                  }
                  }
-                 stage('Run SonarQube Test') {
-                 steps {
-                    echo 'Run SonarQube Test'
-                 }
-                 }
+
                  stage('Build Docker Image') {
                  steps {
                     echo 'Build Docker Image'
