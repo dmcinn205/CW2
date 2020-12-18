@@ -2,13 +2,13 @@ pipeline {
          agent any
          stages {
 		 
-		 stage('Check GitHub') {
+		         stage('Check GitHub') {
                  steps {
-                     git url:'https://github.com/dmcinn205/CW2.git'
+                     git url: 'https://github.com/dmcinn205/CW2.git'
                  }	 
                  }
 		 
-		 stage('Run SonarQube Test') {
+		         stage('Run SonarQube Test') {
 		             environment {
         		     scannerhome = tool 'SonarQube'
 				 }
