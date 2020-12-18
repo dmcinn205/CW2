@@ -24,19 +24,19 @@ pipeline {
 
                  stage('Build Docker Image') {
                  steps {
-                    echo 'Build Docker Image'
+                    sh"""ssh ubuntu@100.25.46.184 "cd CW2; docker image build --tag dmcinn205/CW2:$BUILD_NUMBER .""""
                  }
                  }
 		 
                  stage('Push Docker Image') {
                  steps {
-                    echo 'Push Docker Image'
+                    sh"""ssh ubuntu@100.25.46.184 "cd CW2; docker image push --tag dmcinn205/CW2:$BUILD_NUMBER .""""
                  }
                  }
 						   
                  stage('Deploy To Kubernetes') {
                  steps {
-                     echo 'Deploy To Kubernetes'
+                     sh"""ssh ubuntu@100.25.46.184 "cd CW2; kubectl set image deployment/kubernetes-cw2 kubernetes-cw2=dmcinn205/cw2:latest"""
                  }
                  }
               }
