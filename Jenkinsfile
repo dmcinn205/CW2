@@ -1,12 +1,11 @@
 pipeline {
-         agent any
-         stages {
-		 
-		         stage('Check GitHub') {
-                 steps {
-                     git url: 'https://github.com/dmcinn205/CW2.git'
-                 }	 
-                 }
+    agent any
+    stages {
+        stage('Check GitHub Repo') {
+            steps {
+                git url: 'https://github.com/dmcinn205/CW2.git'
+            }
+        }
 		 
 		         stage('Run SonarQube Test') {
 		             environment {
