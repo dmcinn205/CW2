@@ -1,7 +1,14 @@
 pipeline {
          agent any
          stages {
-		         stage('Run SonarQube Test') {
+		 
+		 stage('Check GitHub') {
+                 steps {
+                     git url:'https://github.com/dmcinn205/CW2.git'
+                 }	 
+                 }
+		 
+		 stage('Run SonarQube Test') {
 		             environment {
         		     scannerHome = tool 'SonarQube'
 				 }
@@ -14,17 +21,13 @@ pipeline {
 				 }
 				 }
                  }
-                 stage('Check GitHub') {
-                 steps {
-                     echo 'Check GitHub Stage'
-                 }
-                 }
 
                  stage('Build Docker Image') {
                  steps {
                     echo 'Build Docker Image'
                  }
                  }
+		 
                  stage('Push Docker Image') {
                  steps {
                     echo 'Push Docker Image'
