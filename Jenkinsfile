@@ -18,7 +18,7 @@ pipeline {
 		 
                  stage('Push Docker Image') {
                  steps {
-                    sh """ ssh ubuntu@100.25.46.184 "cd CW2; docker image push --tag dmcinn205/cw2:$BUILD_NUMBER" """
+                    sh """ ssh ubuntu@100.25.46.184 "cd CW2; docker image push --tag dmcinn205/cw2:$BUILD_NUMBER ." """
                  }
                  }
 
