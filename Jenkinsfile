@@ -10,6 +10,13 @@ pipeline {
                  }
                  }
 
+	         stage('SonarQube Analysis') {
+                 def scannerHome = tool 'SonarQube';
+                    withSonarQubeEnv('SonarQube') { 
+                    sh "${scannerHome}/bin/sonar-scanner"
+                 }
+                 }
+		 
                  stage('Build Docker Image') {
                  steps {
                     sh """ ssh ubuntu@100.25.46.184 "cd CW2; docker image build --tag dmcinn205/cw2:$BUILD_NUMBER ." """
