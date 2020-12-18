@@ -1,11 +1,18 @@
 - name: Deploy Service Scale Kubernetes
   hosts: localhost
   user: ubuntu
-  become: yes
+  become: no
 
   tasks:
   
   - name: 1
     shell:
-      cmd: 
+      cmd: kubectl create deployment kubernetes-cw2 --image=dmcinn205/cw2:latest
       
+  - name: 2
+    shell:
+      cmd: kubectl expose deployment/kubernetes-cw2 --type="NodePort" --port 8080 --name node-port-service
+      
+  - name: 3
+    shell:
+      cmd: kubectl scale deployments/kubernetes-cw2 --replicas=4
