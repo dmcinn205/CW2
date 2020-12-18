@@ -20,7 +20,7 @@ pipeline {
                        -Dsonar.sources=. \
                        -Dsonar.css.node=. \
                        -Dsonar.host.url=http://100.25.46.184:9000 \
-                       -Dsonar.login=your-generated-token-from-sonarqube-container"
+              
                  }
                  }
                  }
