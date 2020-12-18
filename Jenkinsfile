@@ -10,10 +10,19 @@ pipeline {
                  }
                  }
 
-	         stage('SonarQube Analysis') {
-                 def scannerHome = tool 'SonarQube';
-                    withSonarQubeEnv('SonarQube') { 
-                    sh "${scannerHome}/bin/sonar-scanner"
+                 stage('SonarQube Analysis') {
+                 steps {
+                 script {
+                     def scannerHome = tool 'SonarQube';
+                     withSonarQubeEnv("SonarQube") {
+                     sh "${tool("SonarQube")}/bin/sonar-scanner \
+                       -Dsonar.projectKey=server-js \
+                       -Dsonar.sources=. \
+                       -Dsonar.css.node=. \
+                       -Dsonar.host.url=http://your-ip-here:9000 \
+                       -Dsonar.login=your-generated-token-from-sonarqube-container"
+                 }
+                 }
                  }
                  }
 		 
