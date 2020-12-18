@@ -15,11 +15,12 @@ pipeline {
                  script {
                      def scannerHome = tool 'SonarQube';
                      withSonarQubeEnv("SonarQube") {
-                     sh "${tool("SonarQube")}/bin/sonar-scanner \
-                       -Dsonar.projectKey=server-js \
+                     sh "${tool("sonarqube")}/bin/sonar-scanner \
+                       -Dsonar.projectKey=server \
                        -Dsonar.sources=. \
                        -Dsonar.css.node=. \
-                       -Dsonar.host.url=http://100.25.46.184:9000 \"
+                       -Dsonar.host.url=http://100.25.46.184:9000 \
+                       "
                  }
                  }
                  }
