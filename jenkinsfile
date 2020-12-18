@@ -1,0 +1,31 @@
+pipeline {
+         agent any
+         stages {
+                 stage('Check GitHub') {
+                 steps {
+                     
+                 }
+                 }
+                 stage('Run SonarQube Test') {
+                 steps {
+                    
+                 }
+                 }
+                 stage('Build Docker Image') {
+                 steps {
+                    
+                 }
+                 }
+                 stage('Push Docker Image') {
+                 steps {
+                    
+                 }
+                 }
+						   
+                 stage('Deploy To Kubernetes') {
+                 steps {
+                     
+                 }
+                 }
+              }
+}
