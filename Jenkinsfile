@@ -12,7 +12,7 @@ pipeline {
 
                  stage('Build Docker Image') {
                  steps {
-                    sh """ ssh ubuntu@100.25.46.184 "cd CW2; docker image build --tag dmcinn205/cw2:$BUILD_NUMBER" """
+                    sh """ ssh ubuntu@100.25.46.184 "cd CW2; docker image build --tag dmcinn205/cw2:$BUILD_NUMBER ." """
                  }
                  }
 		 
